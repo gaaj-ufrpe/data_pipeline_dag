@@ -2,7 +2,10 @@
 O Airflow é um orquestrador que é bastante utilizado para a criação de pipelines de dados [1].
 Até a versão atual, o Airflow tem compatibilidade apenas com sistemas Linux e MacOS. Para executar no windows, há algumas opções. Segundo a documentação:
 <pre>
-Airflow currently can be run on POSIX-compliant Operating Systems. For development it is regularly tested on fairly modern Linux Distros and recent versions of MacOS. On Windows you can run it via WSL2 (Windows Subsystem for Linux 2) or via Linux Containers.
+Airflow currently can be run on POSIX-compliant Operating Systems. 
+For development it is regularly tested on fairly modern Linux Distros 
+and recent versions of MacOS. On Windows you can run it via WSL2 
+(Windows Subsystem for Linux 2) or via Linux Containers.
 </pre>
 Neste caso, utilizaremos a opção do Docker por ser mais portável e de fácil execução [2,3].
 
