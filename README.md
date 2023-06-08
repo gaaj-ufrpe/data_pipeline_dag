@@ -41,8 +41,8 @@ volumes:
 </pre>
 - Execute <code>docker compose up --build</code>
 - Abra o terminal e cheque se o docker está sendo executado (<code>docker ps</code>). Caso não esteja rodando, pode ser necessário executar o Docker Desktop (<code>& 'C:\Program Files\Docker\Docker\Docker Desktop.exe'</code>). O comando anterior considera o local de instalação específico. Ajuste o path e atente para o '&' no início para inicializar o processo em segundo plano. Outra alternativa é executar direto o programa pelo gerenciador de arquivos do windows.
-- Entre na pasta raiz do projeto e execute <code>docker compose stop<code> para parar os containers e em seguida <code>docker compose rm<code> para remover quaisquer instâncias criadas anteriormente por este script.
-- Em seguida, digite <code>& docker compose up<code> (a partir da segunda vez, pode inicializar apenas o airflow - <code>& docker compose up airflow-init</code>)
+- Entre na pasta raiz do projeto e execute <code>docker compose stop</code> para parar os containers e em seguida <code>docker compose rm</code> para remover quaisquer instâncias criadas anteriormente por este script.
+- Em seguida, digite <code>& docker compose up</code> (a partir da segunda vez, pode inicializar apenas o airflow - <code>& docker compose up airflow-init</code>)
 - Após inicializar, entre no navegador e vá para o endereço http://localhost:8080 (login: airflow senha: airflow).
 - Após inicializar, você pode rodar uma dag manualmente. Caso deseje, altere as configurações das dags para que sejam executadas periodicamente. Novas dags criadas na pasta dags deste projeto serão carregadas automaticamente, uma vez que esta pasta é mapeada em um volume do docker. Observe ainda que as pastas logs, config e plugins também são mapeadas em volumes. Assim, ao realizar uma execução, novos arquivos podem ser criados nesta pasta, podendo ser necessário realizar uma limpeza periodicamente (especialmente a pasta logs). 
 
