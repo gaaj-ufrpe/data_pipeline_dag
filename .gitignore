@@ -1,0 +1,5 @@
+venv
+.history
+logs/*
+__pycache__
+data/output
