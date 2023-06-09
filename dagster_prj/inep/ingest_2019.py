@@ -1,9 +1,10 @@
 import pandas as pd
 import numpy as np
-import logging as log
+from dagster import asset
 
-def ingest():
-    path = '/data/inep/2019'
+@asset
+def ingest_inep_2019():
+    path = 'data/inep/2019'
     df_igc = pd.read_excel(f'{path}/IGC_2019.xlsx')
     df_igc = df_igc[[' Ano',' Código da IES', ' Nome da IES', ' IGC (Contínuo)',' IGC (Faixa)']]
     df_igc.columns = ['ano','codigo_ies', 'nome_ies', 'igc_continuo', 'igc_faixa']
@@ -37,6 +38,4 @@ def ingest():
         c2 = f'{x}_faixa'
         result[c1] = result[c1].astype('Float64')
         result[c2] = result[c2].astype('Float64')
-    log.info(result.dtypes)
-    log.info(result)
-    result.to_parquet('/data/output/inep_2019.parquet')
+    return result
