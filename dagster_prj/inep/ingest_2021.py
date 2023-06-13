@@ -15,7 +15,7 @@ def ingest_inep_2021():
     df_cpc = df_cpc[['Código da IES*', 'Código do Curso**', 
         'Código da Área','Área de Avaliação', 'Município do Curso***', 
         ' CPC (Contínuo)', ' CPC (Faixa)']]
-    df_cpc.columns = ['codigo_curso','codigo_ies','codigo_area','area_avaliacao',
+    df_cpc.columns = ['codigo_ies','codigo_curso','codigo_area','area_avaliacao',
         'municipio_curso','cpc_continuo','cpc_faixa']
     df_cpc.replace(to_replace='SC', value=np.NaN, inplace=True)
 
