@@ -11,9 +11,9 @@ def ingest_inep_2019():
     df_igc.replace(to_replace='SC', value=np.NaN, inplace=True)
 
     df_cpc = pd.read_excel(f'{path}/resultados_cpc_2019.xlsx') 
-    df_cpc = df_cpc[[' Código do Curso', ' Código da IES', ' Código da Área',
+    df_cpc = df_cpc[[' Código da IES', ' Código do Curso', ' Código da Área',
         ' Área de Avaliação',' Município do Curso', ' CPC (Contínuo)', ' CPC (Faixa)']]
-    df_cpc.columns = ['codigo_curso','codigo_ies','codigo_area','area_avaliacao',
+    df_cpc.columns = ['codigo_ies','codigo_curso','codigo_area','area_avaliacao',
         'municipio_curso','cpc_continuo','cpc_faixa']
     df_cpc.replace(to_replace='SC', value=np.NaN, inplace=True)
 
