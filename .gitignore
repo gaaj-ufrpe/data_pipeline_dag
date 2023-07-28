@@ -2,5 +2,5 @@ venv
 .history
 __pycache__
 tmp*/
-data
+data/*
 !data/raw

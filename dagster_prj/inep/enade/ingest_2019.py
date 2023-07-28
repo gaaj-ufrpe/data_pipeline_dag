@@ -1,46 +1,49 @@
-import pandas as pd
 from dagster import asset, AssetKey, SourceAsset
 from dagster_prj.custom_ops import merge_indicators
 
 conceito_enade_2019 = SourceAsset(
-    key=AssetKey("Conceito_Enade_2019"),
+    io_manager_key='enade_io_manager',
+    key='conceito_enade_2019',
     description="Dados do Conceito ENADE do INEP para o ano de 2019",
     metadata={
-        'format': 'xlsx',
-        'cols': ['Código da IES', 'Código do Curso', 'Conceito Enade (Contínuo)', 'Conceito Enade (Faixa)'],
-        'new_cols': ['codigo_ies','codigo_curso','enade_continuo','enade_faixa']
+        'path': '/2019/Conceito_Enade_2019.xlsx',
+        'cols': {'Código da IES':'codigo_ies', 'Código do Curso':'codigo_curso', 
+                 'Conceito Enade (Contínuo)':'enade_continuo', 'Conceito Enade (Faixa)':'enade_faixa'},
     },
 )
 
 cpc_2019 = SourceAsset(
-    key=AssetKey("resultados_cpc_2019"),
+    io_manager_key='enade_io_manager',
+    key='cpc_2019',
     description="Dados do Conceito Preliminar de Curso (CPC) do INEP para o ano de 2019",
     metadata={
-        'format': 'xlsx',
-        'cols': [' Código do Curso', ' Código da IES', ' Código da Área', ' Área de Avaliação', 
-                 ' Município do Curso', ' CPC (Contínuo)', ' CPC (Faixa)'],
-        'new_cols': ['codigo_curso','codigo_ies','codigo_area','area_avaliacao',
-                     'municipio_curso','cpc_continuo','cpc_faixa'],
+        'path': '/2019/resultados_cpc_2019.xlsx',
+        'cols': {' Código da IES':'codigo_ies', ' Código do Curso':'codigo_curso', 
+                 ' Código da Área':'codigo_area', ' Área de Avaliação':'area_avaliacao', 
+                 ' Município do Curso':'municipio_curso', 
+                 ' CPC (Contínuo)':'cpc_continuo', ' CPC (Faixa)':'cpc_faixa'},
     },
 )
 
 idd_2019 = SourceAsset(
-    key=AssetKey("IDD_2019"),
+    io_manager_key='enade_io_manager',
+    key="idd_2019",
     description="Dados do  Indicador de Diferença entre os Desempenhos Observado e Esperado (IDD) do INEP para o ano de 2019",
     metadata={
-        'format': 'xlsx',
-        'cols': [' Código da IES', ' Código do Curso', ' IDD (Contínuo)',' IDD (Faixa)'],
-        'new_cols': ['codigo_ies','codigo_curso','idd_continuo','idd_faixa']
+        'path': '/2019/IDD_2019.xlsx',
+        'cols': {' Código da IES':'codigo_ies', ' Código do Curso':'codigo_curso', 
+                 ' IDD (Contínuo)':'idd_continuo',' IDD (Faixa)':'idd_faixa'},
     },
 )
 
 igc_2019 = SourceAsset(
-    key=AssetKey("IGC_2019"),
+    io_manager_key='enade_io_manager',
+    key='igc_2019',
     description="Dados do Ídice Geral de Cursos (IGC) do INEP para o ano de 2019",
     metadata={
-        'format': 'xlsx',
-        'cols': [' Ano',' Código da IES', ' Nome da IES', ' IGC (Contínuo)',' IGC (Faixa)'],
-        'new_cols': ['ano','codigo_ies', 'nome_ies', 'igc_continuo', 'igc_faixa'] 
+        'path': '/2019/IGC_2019.xlsx',
+        'cols': {' Ano':'ano',' Código da IES':'codigo_ies', ' Nome da IES':'nome_ies', 
+                 ' IGC (Contínuo)':'igc_continuo',' IGC (Faixa)':'igc_faixa'},
     },
 )
 
